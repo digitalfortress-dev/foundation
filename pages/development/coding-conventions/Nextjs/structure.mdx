@@ -1,0 +1,80 @@
+# [Next.js](https://nextjs.org/) Project Structure
+
+This page provides an overview of the project structure of a Next.js application. It covers top-level files and folders, configuration files, and routing conventions within the `app` directories
+
+---
+
+### Folder structure
+
+Most of the code lives in the `app` folder and looks something like this:
+
+```
++-- 📂 app                 # app router
+|
+    +-- 📂 project         # pages router
+    ...
+|
++-- 📁 public              # static assets to be served
+|
++-- 📁 components          # shared components used across the entire application
+|
++-- 📁 config              # global configurations, exported env variables etc.
+|
++-- 📁 hooks               # shared hooks used across the entire application
+|
++-- 📁 lib                 # reusable libraries preconfigured for the application
+|
++-- 📁 stores              # global state stores
+|
++-- 📁 test                # test utilities and mocks
+|
++-- 📁 types               # shared types used across the application
+|
++-- 📁 utils               # shared utility functions
+```
+
+For easy scalability and maintenance, organize most of the code within the page router folder. Each page router folder should contain code specific to that feature, keeping things neatly separated. This approach helps prevent mixing feature-related code with shared components, making it simpler to manage and maintain the codebase compared to having many files in a flat folder structure. By adopting this method, you can enhance collaboration, readability, and scalability in the application's architecture.
+
+A page router could have the following structure:
+
+```
+app/projects
+|
++-- 📁 api                 # exported API request declarations and api hooks related to a specific feature
+|
++-- 📁 assets              # assets folder can contain all the static files for a specific feature
+|
++-- 📁 components          # components scoped to a specific feature
+|
++-- 📁 hooks               # hooks scoped to a specific feature
+|
++-- 📁 stores              # state stores for a specific feature
+|
++-- 📁 types               # typescript types used within the feature
+|
++-- 📁 utils               # utility functions for a specific feature
+```
+
+NOTE: You don't need all of these folders for every feature. Only include the ones that are necessary for the feature.
+
+---
+
+### See similar instructions in the NextJS documentation
+
+###### [Top-level files](https://nextjs.org/docs/getting-started/project-structure#top-level-files)
+
+###### [Routing Conventions](https://nextjs.org/docs/getting-started/project-structure#app-routing-conventions)
+
+###### [Nested Routes](https://nextjs.org/docs/getting-started/project-structure#nested-routes)
+
+###### [Dynamic Routes](https://nextjs.org/docs/getting-started/project-structure#dynamic-routes)
+
+###### [Route Groups and Private Folders](https://nextjs.org/docs/getting-started/project-structure#route-groups-and-private-folders)
+
+###### [Parallel and Intercepted Routes](https://nextjs.org/docs/getting-started/project-structure#parallel-and-intercepted-routes)
+
+###### [Metadata File Conventions](https://nextjs.org/docs/getting-started/project-structure#metadata-file-conventions)
+
+###### [Routers](https://nextjs.org/docs/getting-started/project-structure#routes)
+
+###### [Dynamic Routers](https://nextjs.org/docs/getting-started/project-structure#dynamic-routes-1)
