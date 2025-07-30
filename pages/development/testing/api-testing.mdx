@@ -1,0 +1,108 @@
+## 1. What is API Testing?
+
+### Definition:
+API Testing is the process of testing **Application Programming Interfaces (APIs)** directly to ensure that:
+
+- The data exchange between systems is **correct and consistent**.
+- The API functions properly according to **technical specifications**.
+- The responses are accurate in **format, security, and performance**.
+
+💡 *Think of API as a bridge between the frontend and the backend.*  
+It has no graphical interface, so testers use tools like **Postman, Swagger, or Curl** to send requests and check responses.
+
+
+---
+
+## 2. How to Perform API Testing?
+
+### Step 1: Understand the API to Test
+
+Read the API documentation to know:
+
+- **Endpoint, Method**: GET, POST, PUT, DELETE
+- **Input Parameters**: Query, Path, Body, Header
+- **Expected Response**: Status code, JSON/XML format, response body
+- **Authentication Requirements**: Token, API key, OAuth?
+
+---
+
+### Step 2: Use Tools to Send Requests and Get Responses
+
+- Most commonly used tools: **Postman**, **Swagger UI**
+- Useful for sending test requests and analyzing responses
+
+---
+
+### Example: Test `POST /api/login`
+
+| Field   | Value                                |
+|---------|--------------------------------------|
+| URL     | `https://domain.com/api/login`       |
+| Method  | `POST`                                |
+| Headers | `Content-Type: application/json`      |
+| Body    | `{"username":"test01", "password":"abc123"}` |
+
+**Expected Result:**
+
+```json
+{
+  "status": "success",
+  "token": "eyJhbGciOiJIUzI1NiIsInR..."
+}
+```
+
+Status Code: `200 OK`
+
+💡 *Test cases can be written and managed in tools like Excel.*
+
+---
+
+### Step 4: Test Authentication and Authorization
+
+Many APIs require a valid token or key to access resources. You should:
+
+- Test with a **valid token** → Should return data (success)
+- Test with an **expired or invalid token** → Should return 401 Unauthorized
+- Test with **no token** → Should return 401 Unauthorized
+- Test **role-based access** → e.g. only Admins can access `/api/admin`
+
+---
+
+### Step 5: Validate Status Codes and Responses
+
+Check that the API returns correct **HTTP status codes** and the **response structure** is accurate.
+
+| HTTP Code | Meaning                        |
+|-----------|--------------------------------|
+| 200 OK    | Request successful             |
+| 201 Created | New resource created         |
+| 400 Bad Request | Invalid input            |
+| 401 Unauthorized | Missing or invalid auth |
+| 403 Forbidden | No permission              |
+| 404 Not Found | Endpoint does not exist    |
+| 500 Internal Server Error | Server crash   |
+
+
+---
+
+### Step 6: Apply Common Testing Techniques
+
+| Technique           | Description                                                  |
+|---------------------|--------------------------------------------------------------|
+| Positive Testing    | Valid input, expect successful result                        |
+| Negative Testing    | Invalid input, missing field, wrong formats                  |
+| Boundary Testing    | Test value limits (e.g. string length, number ranges)        |
+| Security Testing    | Test unauthorized access, SQL injection, XSS, etc.           |
+| Schema Validation   | Make sure response follows expected JSON/XML schema          |
+| Performance Testing | Check speed & stability under load (using JMeter, K6, etc.)  |
+
+---
+
+### Step 7: Report Bugs Clearly
+
+If the API does not behave as expected, report the issue with all necessary details:
+
+- Title, endpoint, input
+- Expected result vs. actual result
+- Screenshots/logs, severity level
+- Use Redmine or Excel to manage bugs
