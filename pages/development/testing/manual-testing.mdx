@@ -1,0 +1,95 @@
+---
+title: Manual Testing
+description: Foundation - Manual testing for QA
+---
+
+## 1. What is Manual Testing? 
+
+**Manual Testing** it is a form of software testing in which the tester manually performs actions on the software (without using automation tools) to:
+
+- Verify whether the software functions as expected.
+- Check whether the software operates according to the requirement.
+
+---
+
+## Characteristics of Manual Testing:
+
+| Criteria                              | Description                                                          |
+|---------------------------------------|----------------------------------------------------------------------|
+| **No automation tools used**        | Testers perform actions manually without using scripts to run tests    |
+| **User-focused perspective** | Simulates the experience of a real end-user                                   |
+| **Applied to functionality & UI** | Especially effective for UI testing, usability, and exploratory testing      |
+| **Suitable for frequently changing software**     | Updating automated test scripts can be time-consuming |
+
+
+## 2. How to do Manual Testing?
+
+## The basic manual testing process includes:
+
+---
+
+### Step 1: Requirement Analysis
+
+**Objective:** To clearly understand how the application under test works.
+
+- Read documents such as: SRS, PRD, Use Case, User Story, etc.
+- Discuss with the BA or Developer if any requirements are unclear.
+- Identify key features and important functionalities that need to be tested.
+
+---
+
+### Step 2: Write Test Case
+
+**Objective:** Create a clear and comprehensive test plan covering all necessary steps.
+
+📄 **Refer to the test case template:**  
+👉 [Open the Test Case template ](https://docs.google.com/spreadsheets/d/1vRh9sIMJBIWO-IVh2ImgZ0zgEuxDI2wn/edit?usp=sharing&ouid=106078261355383157012&rtpof=true&sd=true)
+
+Writing test cases helps ensure systematic testing and prevents omissions.
+
+
+---
+
+### Step 3: Test Environment Setup
+
+- Has the application been deployed to the test environment?
+- Is a test account required?
+- Does the database contain the necessary test data?
+- Are the test devices and browsers ready?
+
+---
+
+### Step 4: Test Execution
+
+- Execute each step in the test case.
+- Compare the actual result with the expected result.
+- Record the result (Pass/Fail).
+- If an issue is found → proceed to the next step.
+
+---
+
+### Step 5: Bug Reporting
+
+Use tools such as: **Jira**, **Azure DevOps**, **Redmine**...
+
+
+
+---
+
+### Step 6: Retest and Regression Testing
+
+- After the developer fixes a bug → perform retesting to confirm the issue has been resolved.
+- If the fix may impact other parts of the system → perform regression testing.
+
+
+---
+
+### Step 7: Test Report
+
+The report should include:
+- Total number of test cases: how many passed / failed?
+- Total bugs found and how many have been fixed.
+- Any issues encountered during testing and remaining risks.
+
+
+[Open the Test Report template ](https://docs.google.com/spreadsheets/d/1oOegl6yD2VhMq4G_hqxkuY1jx-cpkcYG/edit?usp=sharing&ouid=106078261355383157012&rtpof=true&sd=true)
