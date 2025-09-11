@@ -14,6 +14,9 @@ const meta: MetaRecord = {
     title: "Agile Scrum Foundation",
     display: "hidden", //hide the group index from navigation
   },
+  "user-story-guidelines": {
+    title: "User Story Guidelines"
+  }
 }
 
 export default meta
