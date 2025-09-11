@@ -1,0 +1,125 @@
+---
+title: User Story Writing Guidelines
+---
+
+# User Story Writing Guidelines
+
+## What is a User Story?
+
+A User Story describes a feature from the user's perspective:
+
+> **As a** [user type], **I want** [goal] **so that** [benefit].
+
+## Basic Format with Definition of Done
+
+```
+Title: [Brief descriptive title]
+
+As a [persona/role]
+I want [functionality/capability]
+So that [business value/benefit]
+
+Acceptance Criteria:
+- Given [context/precondition]
+  When [action/event]
+  Then [expected outcome]
+
+Definition of Done:
+- [ ] Code complete and reviewed
+- [ ] Unit tests written and passing
+- [ ] Integration tests passing
+- [ ] UI/UX approved
+- [ ] Documentation updated
+```
+
+## Common Mistakes to Avoid
+
+### ❌ CRITICAL: Never Use Internal Roles
+
+**NEVER write user stories using internal team roles:**
+- ❌ "As a Product Owner, I want..."
+- ❌ "As a Developer, I want..."
+- ❌ "As a Scrum Master, I want..."
+- ❌ "As a Business Analyst, I want..."
+
+### Why Internal Roles Are Wrong
+
+**Internal roles should NEVER be used in user stories because:**
+
+1. **They don't represent end users** - These roles don't use the final product
+2. **They don't deliver customer value** - Internal efficiency doesn't directly benefit customers
+3. **They create confusion** - Stories should focus on external value, not internal processes
+4. **They violate the user story purpose** - Stories should capture customer needs, not team needs
+
+### ✅ Use These Instead of Internal Roles
+
+**Instead of internal roles, use:**
+- **Actual end users**: customers, clients, visitors, subscribers
+- **Specific personas**: premium users, new users, admin users, mobile users
+- **Business stakeholders**: store owners, managers, employees (if they're actual users of the system)
+
+**Examples of Correct User Roles:**
+- ✅ "As a customer, I want..."
+- ✅ "As a premium subscriber, I want..."
+- ✅ "As a store manager, I want..."
+- ✅ "As a mobile user, I want..."
+- ✅ "As a first-time visitor, I want..."
+
+## User Story vs Spike vs Enabler
+
+### User Stories
+**For:** Features that users can see and use
+**Format:** As a [user], I want [goal] so that [benefit]
+**Example:**
+```
+As a customer
+I want to track my order status
+So that I know when to expect delivery
+```
+
+### Spikes
+**For:** Research or investigation work
+**Format:** 
+```
+Spike: [Research topic]
+Time-box: [1-3 days]
+Goal: [What we need to learn]
+```
+**Example:**
+```
+Spike: Payment Gateway Options
+Time-box: 2 days
+Goal: Compare Stripe vs PayPal integration costs and features
+```
+
+### Enablers  
+**For:** Technical work that supports future features
+**Format:**
+```
+Enabler: [Technical capability]
+Enables: [Future user stories]
+```
+**Example:**
+```
+Enabler: Set up user authentication system
+Enables: Login, profile management, and personalization features
+```
+
+## How to Separate Them
+
+Ask yourself:
+1. **Does a user directly benefit from this?** → User Story
+2. **Do we need to research something first?** → Spike  
+3. **Does this enable future user features?** → Enabler
+
+## Simple Checklist
+
+Before writing a user story:
+- [ ] Is the "As a..." role a real end user?
+- [ ] Does this deliver value to that user?
+- [ ] Can we test this when it's done?
+- [ ] Is it small enough for one sprint?
+
+---
+
+**Remember: Focus on real users and the value they get from your product.**
