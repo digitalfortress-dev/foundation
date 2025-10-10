@@ -10,50 +10,145 @@ A User Story describes a feature from the user's perspective:
 
 > **As a** [user type], **I want** [goal] **so that** [benefit].
 
-## Basic Format with Definition of Done
+## 🧩 Common User Story Structure
 
-```
-Title: [Brief descriptive title]
+### 1. Title
+**Format:**  
+`[Epic / Service / ...] + a short description of the User Story`
 
-As a [persona/role]
-I want [functionality/capability]
-So that [business value/benefit]
+**Example:**  
+`[Authentication] Reset Password via Email`
 
-Acceptance Criteria:
-- Given [context/precondition]
-  When [action/event]
-  Then [expected outcome]
+---
 
-Definition of Done:
-- [ ] Code complete and reviewed
-- [ ] Unit tests written and passing
-- [ ] Integration tests passing
-- [ ] UI/UX approved
-- [ ] Documentation updated
-```
+### 2. User Story
+**Format:**  
+> As a [persona], I want [goal], so that [benefit].
+
+**Example:**  
+> As a registered user,  
+> I want to be able to reset my password through a secure email link,  
+> So that I can regain access to my account without contacting customer support.
+
+---
+
+### 3. Context
+- **If it’s a new feature:** Explain why it is needed.  
+- **If it’s an update:** Describe both the current state (**AS-IS**) and the desired state (**TO-BE**).
+
+**Example:**  
+>**AS-IS:**  
+>Users who forget their passwords must contact customer support to manually reset them, which increases handling time and reduces user satisfaction.  
+
+>**TO-BE:**  
+>Users can securely request a password reset link via email directly from the login page and reset their passwords without needing support assistance.
+
+---
+
+### 4. Pre-conditions (Optional)
+Describe any conditions that must be met before implementation.  
+
+**Example:**  
+>The user must have a registered and verified email address.
+
+---
+
+### 5. UI Link (Optional)
+Attach any relevant design or UI references.  
+
+**Example:**  
+>[Figma Design – Password Reset Flow](https://www.figma.com/file/example/password-reset-flow)
+
+---
+
+### 6. Acceptance Criteria
+- For new features, outline possible scenarios using the **Given – When – Then** format.  
+- If the requirements are already clear, summarize the completion conditions briefly.
+
+**Examples:**
+
+**Scenario 1 – User Requests Password Reset**  
+
+>Given a registered user is on the login page
+>When the user clicks “Forgot Password” and enters their registered email address
+>Then the system sends a password reset email and displays:
+>"If this email is registered, a reset link has been sent."
+
+
+
+**Scenario 2 – User Resets Password Successfully**  
+
+>Given the user has received a password reset email
+>When they click the link within 15 minutes and enter a valid new password
+>Then the system updates the password and allows the user to log in with the new one.
+
+
+**Scenario 3 – Password Reset Link Expired**  
+
+>Given the reset link was sent more than 15 minutes ago
+>When the user clicks on it
+>Then the system displays: "This link has expired. Please request a new password reset."
+
+
+---
+
+### 7. Detail Task Description (Specs)
+Describe the detailed workflow and technical specifications for implementation.
+
+**Example:**
+
+> - The user goes to the login page and clicks “Forgot Password.”
+> - The user enters their email; invalid formats trigger inline errors.  
+> - Valid inputs submit the reset request.
+> - The system verifies the email, generates a 15-minute token if valid, and sends a reset email.  
+> - A generic success message is shown to avoid email disclosure.
+> - The user receives a reset link (`/reset-password?token=z`).  
+> - Clicking it validates the token — valid tokens show the reset form; invalid ones show an error with a “Request Again” option.
+> - The user sets a new password, which must be strong and different from the previous one.  
+> - The system updates credentials, invalidates the token, and confirms success with a login prompt.
+> - The user gets a confirmation email; all active sessions are logged out, and system logs are updated for security.
+
+---
+
+## 📒 DOR (Definition of Ready)
+Follow these criteria to ensure each story is ready to **Start the Sprint**:
+- [x] User Story is clearly defined with a complete workflow and AC  
+- [x] Dependencies are identified (optional).  
+- [x] UI/UX prototype is linked and approved (optional).  
+- [x] Story points are estimated, and the story is sprint-ready.  
+- [x] Product Owner has reviewed and approved the story (nice to have).  
+
+## 📋 Simple Checklist
+
+Before writing a user story:
+- [ ] Is the "As a..." role a real end user?
+- [ ] Does this deliver value to that user?
+- [ ] Can we test this when it's done?
+- [ ] Is it small enough for one sprint?
+
 
 ## Common Mistakes to Avoid
 
-### ❌ CRITICAL: Never Use Internal Roles
+### ❌ CRITICAL: Never Use Development Roles
 
-**NEVER write user stories using internal team roles:**
+**NEVER write user stories using development roles:**
 - ❌ "As a Product Owner, I want..."
 - ❌ "As a Developer, I want..."
 - ❌ "As a Scrum Master, I want..."
 - ❌ "As a Business Analyst, I want..."
 
-### Why Internal Roles Are Wrong
+### Why Development Roles Are Wrong
 
-**Internal roles should NEVER be used in user stories because:**
+**Development roles should NEVER be used in user stories because:**
 
 1. **They don't represent end users** - These roles don't use the final product
 2. **They don't deliver customer value** - Internal efficiency doesn't directly benefit customers
 3. **They create confusion** - Stories should focus on external value, not internal processes
 4. **They violate the user story purpose** - Stories should capture customer needs, not team needs
 
-### ✅ Use These Instead of Internal Roles
+### ✅ Use These Instead of Development Roles
 
-**Instead of internal roles, use:**
+**Instead of development roles, use:**
 - **Actual end users**: customers, clients, visitors, subscribers
 - **Specific personas**: premium users, new users, admin users, mobile users
 - **Business stakeholders**: store owners, managers, employees (if they're actual users of the system)
@@ -111,14 +206,6 @@ Ask yourself:
 1. **Does a user directly benefit from this?** → User Story
 2. **Do we need to research something first?** → Spike  
 3. **Does this enable future user features?** → Enabler
-
-## Simple Checklist
-
-Before writing a user story:
-- [ ] Is the "As a..." role a real end user?
-- [ ] Does this deliver value to that user?
-- [ ] Can we test this when it's done?
-- [ ] Is it small enough for one sprint?
 
 ---
 
